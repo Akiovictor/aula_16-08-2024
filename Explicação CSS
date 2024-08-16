@@ -1,0 +1,93 @@
+O código CSS que você forneceu usa variáveis CSS para definir um esquema de cores e aplicar essas cores em vários elementos da página. Vou explicar cada parte detalhadamente:
+
+1. Definição de Variáveis CSS com :root
+
+:root{
+    --cor-fundo: #01080E;
+    --cor-principal: #0B0D20;
+    --cor-secundaria: #212333; 
+    --cor-destaque: #2BDEFD;
+    --cor-texto: #D7F9FF;
+}
+
+A pseudo-classe :root representa o elemento raiz do documento (geralmente o html).
+As variáveis CSS são definidas usando --nome-da-variavel, e podem ser reutilizadas em qualquer parte do código CSS usando a função var(--nome-da-variavel).
+No seu código, as variáveis definem um esquema de cores:
+--cor-fundo: Cor de fundo da página.
+--cor-principal: Cor principal usada em caixas e blocos.
+--cor-secundaria: Cor secundária usada em botões.
+--cor-destaque: Cor usada para elementos destacados (como o título).
+--cor-texto: Cor usada para o texto principal.
+
+2. Estilos para o body
+
+body {
+    background-color: var(--cor-fundo);
+    color: var(--cor-texto);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    min-height: 100vh;
+}
+
+Define o estilo do corpo da página:
+
+background-color: var(--cor-fundo): Aplica a cor de fundo definida pela variável --cor-fundo.
+color: var(--cor-texto): Aplica a cor do texto definida pela variável --cor-texto.
+display: flex; justify-content: center; align-items: center;: Usando Flexbox, centraliza o conteúdo tanto horizontalmente quanto verticalmente.
+min-height: 100vh: Garante que o corpo ocupe no mínimo 100% da altura da tela (viewport).
+
+3. Estilo da caixa-principal
+
+.caixa-principal{
+    background-color: var(--cor-principal);
+    width: 90%;
+    max-width: 600px;
+    text-align: center;
+    padding: 20px;
+}
+
+Estilo aplicado a uma caixa principal centralizada na página:
+background-color: var(--cor-principal): Define a cor de fundo da caixa usando a cor principal.
+width: 90%; max-width: 600px;: Define a largura da caixa como 90% da tela, mas com um limite máximo de 600px para manter um layout responsivo.
+text-align: center;: Centraliza o texto dentro da caixa.
+padding: 20px;: Adiciona um espaçamento interno de 20px em todos os lados da caixa.
+
+4. Estilo do Título (h1)
+
+h1{
+    color: var(--cor-destaque);
+}
+
+O título (h1) recebe a cor definida pela variável --cor-destaque, o que o torna mais visível e destacado.
+
+5. Estilo do Botão
+
+button {
+    background-color: var(--cor-secundaria);
+    color: var(--cor-texto);
+    border: none;
+    border-radius: 15px;
+    padding: 15px;
+    transition: background-color 0.3s;
+}
+
+button:hover{
+    background-color: var(--cor-destaque);
+    color: var(--cor-principal);
+}
+
+Define o estilo dos botões:
+
+background-color: var(--cor-secundaria): Cor de fundo inicial do botão.
+color: var(--cor-texto): Cor do texto dentro do botão.
+border: none;: Remove qualquer borda padrão.
+border-radius: 15px;: Adiciona cantos arredondados com um raio de 15px.
+padding: 15px;: Adiciona um espaçamento interno de 15px ao botão.
+transition: background-color 0.3s;: Define uma transição suave de 0,3 segundos ao mudar a cor de fundo.
+O estilo de hover para o botão altera a cor ao passar o mouse:
+background-color: var(--cor-destaque);: Muda a cor de fundo para a cor de destaque.
+color: var(--cor-principal);: Muda a cor do texto para a cor principal, criando um contraste claro.
+
+Considerações Gerais
+Esse código cria uma página estilizada com cores bem definidas e uma estrutura de layout centrada. Usar variáveis CSS é uma prática moderna que facilita a manutenção e a consistência visual do projeto, já que mudanças de cor podem ser feitas em um único lugar (:root) e se refletirão em toda a página.
