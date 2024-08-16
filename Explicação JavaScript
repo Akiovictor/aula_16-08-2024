@@ -1,0 +1,57 @@
+Explicação das Constantes
+
+    const caixaPrincipal = document.querySelector(".caixa-principal");
+    Seleciona o elemento principal onde provavelmente todo o conteúdo do questionário é exibido.
+
+    const caixaPerguntas = document.querySelector(".caixa-perguntas");
+    Seleciona o elemento onde o enunciado da pergunta será mostrado.
+
+    const caixaAlternativas = document.querySelector(".caixa-alternativas");
+    Seleciona o elemento onde os botões de resposta (alternativas) serão exibidos.
+
+    const caixaResultado = document.querySelector(".caixa-resultado");
+    Seleciona o elemento onde o resultado final do questionário será mostrado.
+
+    const textoResultado = document.querySelector(".texto-resultado");
+    Seleciona o elemento onde a descrição final baseada nas respostas do usuário será exibida.
+
+Estrutura de Dados (Perguntas)
+A constante perguntas é um array que contém objetos representando cada pergunta do questionário. Cada objeto de pergunta tem:
+
+enunciado: O texto da pergunta.
+alternativas: Um array de objetos que contém as possíveis respostas. Cada resposta tem:
+    texto: O texto que será exibido no botão de resposta.
+    afirmacao: A descrição ou comentário que será agregado ao resultado final, caso o usuário escolha essa alternativa.
+
+Lógica de Fluxo
+    A aplicação usa variáveis de controle e funções para gerenciar o estado do questionário:
+
+Variáveis de Controle:
+
+    let atual = 0;
+    Controla o índice da pergunta atual. Inicia em 0 e é incrementado a cada pergunta respondida.
+
+    let perguntaAtual;
+    Armazena temporariamente a pergunta atual sendo exibida.
+
+    let historiaFinal = "";
+    Armazena as descrições acumuladas com base nas respostas selecionadas.
+
+
+Função mostraPergunta()
+    Essa função exibe a pergunta atual e suas alternativas. Se todas as perguntas já foram respondidas, ela chama a função mostraResultado() para exibir o resultado final.
+  
+    mostraAlternativas() é uma função auxiliar dentro de mostraPergunta(). Ela cria botões de resposta para cada alternativa da pergunta atual e adiciona um evento click a cada botão para capturar a escolha do usuário.
+
+Função respostaSelecionada(opcaoSelecionada)
+    Essa função é chamada quando o usuário seleciona uma resposta. Ela adiciona a afirmação correspondente à variável historiaFinal, avança para a próxima pergunta e chama mostraPergunta() novamente.
+
+Função mostraResultado()
+    Quando todas as perguntas são respondidas, essa função exibe o resultado final. Ela substitui o conteúdo da caixa de perguntas e alternativas pelo texto acumulado em historiaFinal.
+
+
+Resumo do Comportamento
+    Ao carregar a página, a primeira pergunta é mostrada.
+    O usuário escolhe uma resposta, e a aplicação exibe a próxima pergunta, acumulando as descrições relacionadas às respostas.
+    Quando todas as perguntas são respondidas, o resultado final é mostrado, descrevendo aspectos do comportamento ou preferências do usuário com base nas escolhas feitas.
+    Esse é um exemplo típico de um quiz interativo que poderia ser utilizado em uma página web para fins de entretenimento ou coleta de perfis de usuários.
